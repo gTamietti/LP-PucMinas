@@ -1,4 +1,3 @@
-// Funcionario.java
 public class Funcionario extends PessoaFisica {
     private String cargo;
     private double salario;
