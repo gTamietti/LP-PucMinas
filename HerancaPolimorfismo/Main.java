@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        Empresa empresa = new Empresa("Tech Solutions");
+        Empresa empresa = new Empresa("Empresa LP");
         Scanner scanner = new Scanner(System.in);
 
         int opcao;
@@ -20,8 +20,9 @@ public class Main {
             System.out.print("Escolha uma opção: ");
             opcao = scanner.nextInt();
             scanner.nextLine(); 
+
             switch (opcao) {
-                case 1:  {
+                case 1: {
                     System.out.println("\n--- Adicionar Cliente PF ---");
                     System.out.print("Nome: ");
                     String nome = scanner.nextLine();
@@ -44,9 +45,10 @@ public class Main {
                     ClienteFisico cliente = new ClienteFisico(nome, endereco, telefone, cep, cidade, uf, cpf, limite);
                     empresa.adicionarCliente(cliente);
                     System.out.println("Cliente PF adicionado com sucesso!");
+                    break;
                 }
 
-                case 2:  {
+                case 2: {
                     System.out.println("\n--- Adicionar Cliente PJ ---");
                     System.out.print("Nome: ");
                     String nome = scanner.nextLine();
@@ -69,9 +71,10 @@ public class Main {
                     ClienteJuridico cliente = new ClienteJuridico(nome, endereco, telefone, cep, cidade, uf, cnpj, limite);
                     empresa.adicionarCliente(cliente);
                     System.out.println("Cliente PJ adicionado com sucesso!");
+                    break;
                 }
 
-                case 3:  {
+                case 3: {
                     System.out.println("\n--- Adicionar Funcionário ---");
                     System.out.print("Nome: ");
                     String nome = scanner.nextLine();
@@ -96,9 +99,10 @@ public class Main {
                     Funcionario funcionario = new Funcionario(nome, endereco, telefone, cep, cidade, uf, cpf, cargo, salario);
                     empresa.adicionarFuncionario(funcionario);
                     System.out.println("Funcionário adicionado com sucesso!");
+                    break;
                 }
 
-                case 4:  {
+                case 4: {
                     System.out.println("\n--- Definir Presidente ---");
                     if (empresa.getFuncionarios().isEmpty()) {
                         System.out.println("Não há funcionários cadastrados.");
@@ -114,13 +118,28 @@ public class Main {
                             System.out.println("Índice inválido.");
                         }
                     }
+                    break;
                 }
 
-                case 5:  empresa.listarClientes();
-                case 6:  empresa.listarFuncionarios();
-                case 7:  empresa.mostrarPresidente();
-                case 0:  System.out.println("Encerrando o programa...");
-                default:  System.out.println("Opção inválida!");
+                case 5:
+                    empresa.listarClientes();
+                    break;
+
+                case 6:
+                    empresa.listarFuncionarios();
+                    break;
+
+                case 7:
+                    empresa.mostrarPresidente();
+                    break;
+
+                case 0:
+                    System.out.println("Encerrando o programa...");
+                    break;
+
+                default:
+                    System.out.println("Opção inválida!");
+                    break;
             }
 
         } while (opcao != 0);
